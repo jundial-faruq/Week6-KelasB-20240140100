@@ -1,0 +1,101 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+header {
+    background-color: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #00000015;
+}
+
+h2 {
+    color: #2563eb;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(180px, 1fr)
+    );
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.produk {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.produk h3 {
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#hasilForm {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.sukses {
+    color: green;
+}
+
+.error {
+    color: red;
+}
