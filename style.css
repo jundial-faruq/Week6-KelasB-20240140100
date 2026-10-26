@@ -1,101 +1,325 @@
+/* ==========================================
+   DESIGN TOKENS (ubah nilai di sini saja)
+   ========================================== */
+:root {
+    /* Warna utama */
+    --warna-primer: #4f46e5;
+    --warna-primer-gelap: #4338ca;
+    --warna-aksen: #06b6d4;
 
+    /* Warna permukaan & teks */
+    --warna-latar: #f1f5f9;
+    --warna-kartu: #ffffff;
+    --warna-teks: #1e293b;
+    --warna-teks-redup: #64748b;
+    --warna-garis: #e2e8f0;
+
+    /* Warna status */
+    --warna-sukses: #15803d;
+    --warna-sukses-bg: #dcfce7;
+    --warna-error: #b91c1c;
+    --warna-error-bg: #fee2e2;
+    --warna-info: #1d4ed8;
+    --warna-info-bg: #dbeafe;
+    --warna-nonaktif: #94a3b8;
+
+    /* Tipografi */
+    --font-utama: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --ukuran-kecil: 0.875rem;
+    --ukuran-dasar: 1rem;
+    --ukuran-judul-kartu: 1rem;
+    --ukuran-judul-seksi: 1.4rem;
+    --ukuran-judul-utama: 2rem;
+
+    /* Jarak */
+    --jarak-xs: 0.5rem;
+    --jarak-sm: 0.75rem;
+    --jarak-md: 1rem;
+    --jarak-lg: 1.5rem;
+    --jarak-xl: 2rem;
+
+    /* Bentuk */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --bayangan-sm: 0 1px 3px rgb(0 0 0 / 0.08);
+    --bayangan-md: 0 8px 24px rgb(15 23 42 / 0.08);
+    --bayangan-hover: 0 12px 28px rgb(79 70 229 / 0.18);
+    --fokus-ring: 0 0 0 4px rgb(79 70 229 / 0.2);
+
+    /* Layout & animasi */
+    --lebar-maks: 1000px;
+    --lebar-kartu-min: 200px;
+    --transisi: 0.2s ease;
+}
+
+/* Dark mode otomatis mengikuti pengaturan perangkat */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --warna-primer: #818cf8;
+        --warna-primer-gelap: #6366f1;
+        --warna-latar: #0f172a;
+        --warna-kartu: #1e293b;
+        --warna-teks: #e2e8f0;
+        --warna-teks-redup: #94a3b8;
+        --warna-garis: #334155;
+        --warna-sukses: #86efac;
+        --warna-sukses-bg: #14532d;
+        --warna-error: #fca5a5;
+        --warna-error-bg: #7f1d1d;
+        --warna-info: #93c5fd;
+        --warna-info-bg: #1e3a8a;
+        --bayangan-md: 0 8px 24px rgb(0 0 0 / 0.4);
+        --bayangan-hover: 0 12px 28px rgb(0 0 0 / 0.5);
+        --fokus-ring: 0 0 0 4px rgb(129 140 248 / 0.3);
+    }
+}
+
+/* ==========================================
+   RESET & DASAR
+   ========================================== */
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f4f6f9;
-    color: #333;
+    font-family: var(--font-utama);
+    font-size: var(--ukuran-dasar);
+    line-height: 1.6;
+    background-color: var(--warna-latar);
+    color: var(--warna-teks);
 }
 
+/* ==========================================
+   HEADER
+   ========================================== */
 header {
-    background-color: #2563eb;
-    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--warna-primer),
+        var(--warna-aksen)
+    );
+    color: #fff;
     text-align: center;
-    padding: 25px;
+    padding: var(--jarak-xl) var(--jarak-md);
 }
 
+header h1 {
+    margin: 0 0 var(--jarak-xs);
+    font-size: var(--ukuran-judul-utama);
+}
+
+header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   LAYOUT
+   ========================================== */
 main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 15px;
+    max-width: var(--lebar-maks);
+    margin: var(--jarak-xl) auto;
+    padding: 0 var(--jarak-md);
 }
 
 section {
-    background: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px #00000015;
+    background: var(--warna-kartu);
+    padding: var(--jarak-lg);
+    margin-bottom: var(--jarak-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--bayangan-md);
+    border: 1px solid var(--warna-garis);
 }
 
 h2 {
-    color: #2563eb;
+    margin-top: 0;
+    font-size: var(--ukuran-judul-seksi);
+    color: var(--warna-primer);
 }
 
+/* ==========================================
+   TOMBOL
+   ========================================== */
 button {
-    background-color: #2563eb;
-    color: white;
+    background-color: var(--warna-primer);
+    color: #fff;
     border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
+    padding: var(--jarak-sm) var(--jarak-lg);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: var(--ukuran-dasar);
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: var(--jarak-xs);
+    transition:
+        background-color var(--transisi),
+        transform var(--transisi),
+        box-shadow var(--transisi);
 }
 
-button:hover {
-    background-color: #1d4ed8;
+button:hover:not(:disabled) {
+    background-color: var(--warna-primer-gelap);
+    transform: translateY(-2px);
+    box-shadow: var(--bayangan-hover);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: none;
+    box-shadow: var(--fokus-ring);
 }
 
 button:disabled {
-    background-color: #94a3b8;
+    background-color: var(--warna-nonaktif);
     cursor: not-allowed;
 }
 
+/* ==========================================
+   PESAN STATUS (loading / sukses / error)
+   ========================================== */
+#statusProduk,
+#hasilForm {
+    margin-top: var(--jarak-md);
+    padding: var(--jarak-sm) var(--jarak-md);
+    border-radius: var(--radius-sm);
+    background-color: var(--warna-info-bg);
+    color: var(--warna-info);
+    font-size: var(--ukuran-kecil);
+    line-height: 1.6;
+}
+
+/* Sembunyikan kotak ketika belum ada isi */
+#statusProduk:empty,
+#hasilForm:empty {
+    display: none;
+}
+
+#hasilForm h3 {
+    margin: 0 0 var(--jarak-xs);
+}
+
+#hasilForm p {
+    margin: 0;
+}
+
+/* Class dari JavaScript */
+.sukses {
+    background-color: var(--warna-sukses-bg) !important;
+    color: var(--warna-sukses) !important;
+}
+
+.error {
+    background-color: var(--warna-error-bg) !important;
+    color: var(--warna-error) !important;
+}
+
+/* ==========================================
+   GRID & KARTU PRODUK
+   ========================================== */
 .produk-grid {
     display: grid;
     grid-template-columns: repeat(
-        auto-fit, minmax(180px, 1fr)
+        auto-fill,
+        minmax(var(--lebar-kartu-min), 1fr)
     );
-    gap: 15px;
-    margin-top: 20px;
+    gap: var(--jarak-md);
+    margin-top: var(--jarak-lg);
 }
 
 .produk {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--jarak-xs);
+    padding: var(--jarak-md);
+    background-color: var(--warna-kartu);
+    border: 1px solid var(--warna-garis);
+    border-left: 4px solid var(--warna-primer);
+    border-radius: var(--radius-md);
+    box-shadow: var(--bayangan-sm);
+    transition:
+        transform var(--transisi),
+        box-shadow var(--transisi);
+}
+
+.produk:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bayangan-hover);
 }
 
 .produk h3 {
-    font-size: 16px;
+    margin: 0;
+    font-size: var(--ukuran-judul-kartu);
 }
 
+.produk p {
+    margin: 0;
+    font-weight: 700;
+    color: var(--warna-primer);
+}
+
+/* ==========================================
+   FORM
+   ========================================== */
 label {
     display: block;
-    margin-top: 15px;
-    font-weight: bold;
+    margin-top: var(--jarak-md);
+    font-size: var(--ukuran-kecil);
+    font-weight: 600;
+    color: var(--warna-teks-redup);
 }
 
 input {
     width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: var(--jarak-sm);
+    margin-top: 0.35rem;
+    font-family: inherit;
+    font-size: var(--ukuran-dasar);
+    color: var(--warna-teks);
+    background-color: var(--warna-latar);
+    border: 1px solid var(--warna-garis);
+    border-radius: var(--radius-sm);
+    transition:
+        border-color var(--transisi),
+        box-shadow var(--transisi);
 }
 
-#hasilForm {
-    margin-top: 20px;
-    line-height: 1.6;
+input:focus {
+    outline: none;
+    border-color: var(--warna-primer);
+    box-shadow: var(--fokus-ring);
 }
 
-.sukses {
-    color: green;
+input::placeholder {
+    color: var(--warna-teks-redup);
 }
 
-.error {
-    color: red;
+form button {
+    margin-top: var(--jarak-lg);
+    width: 100%;
+}
+
+/* ==========================================
+   RESPONSIF
+   ========================================== */
+@media (max-width: 600px) {
+    :root {
+        --ukuran-judul-utama: 1.5rem;
+        --lebar-kartu-min: 150px;
+    }
+
+    section {
+        padding: var(--jarak-md);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
 }
